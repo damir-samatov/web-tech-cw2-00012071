@@ -4,20 +4,7 @@ const cookieParser = require("cookie-parser");
 const path = require("path");
 
 //Fake store
-const users = [
-  {
-    username: "Daryl",
-    password: "1",
-  },
-  {
-    username: "Clem",
-    password: "2",
-  },
-  {
-    username: "Ellie",
-    password: "3",
-  },
-];
+const users = [];
 const cookieStore = {};
 
 // Init app
@@ -32,7 +19,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use((req, res, next) => {
-  console.log(`${req.method} ${req.url}`);
+  console.log(`${req.method}-${req.url}`);
   console.log(users);
   console.log(cookieStore);
   next();
@@ -51,7 +38,7 @@ app.get("/", (req, res) => {
   }
 });
 
-app.post("/", (req, res) => {
+app.post("/logout", (req, res) => {
   delete cookieStore[`${req.cookies.session_id}`];
   res.redirect("/");
 });
@@ -77,7 +64,7 @@ app.get("/register", (req, res) => {
 });
 
 app.post("/register", (req, res) => {
-  users.push(req.body);
+  users.push({ ...req.body });
   res.redirect("/login");
 });
 
