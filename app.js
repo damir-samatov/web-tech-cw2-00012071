@@ -33,6 +33,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.url}`);
+  console.log(users);
+  console.log(cookieStore);
   next();
 });
 
@@ -40,11 +42,7 @@ app.use("/static", express.static("assets"));
 
 // Routes
 app.get("/", (req, res) => {
-  console.log(req.cookies);
   if ("session_id" in req.cookies && cookieStore[`${req.cookies.session_id}`]) {
-    console.log(
-      cookieStore[`${req.cookies.session_id}`].username + " logged in"
-    );
     res.render("index", {
       username: cookieStore[`${req.cookies.session_id}`].username,
     });
