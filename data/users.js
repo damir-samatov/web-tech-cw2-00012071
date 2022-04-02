@@ -15,6 +15,7 @@ const users = [];
 //         "amount": "98000",
 //         "currency": "SUM",
 //         "for": "Netflix monthly subscription.",
+//         "edited": false
 //       },
 //       {
 //         "time": "12:23",
@@ -25,6 +26,7 @@ const users = [];
 //         "amount": "98000",
 //         "currency": "SUM",
 //         "for": "Netflix monthly subscription.",
+//         "edited": true
 //       }
 //     ]
 //   }

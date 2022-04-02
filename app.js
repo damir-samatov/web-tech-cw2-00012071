@@ -1,10 +1,11 @@
-const PORT = 3000;
-const users = require("./data/users.js");
-const cookies = require("./data/cookies.js");
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const path = require("path");
 const app = express();
+
+const PORT = 3000;
+const users = require("./data/users.js");
+const cookies = require("./data/cookies.js");
 
 const { validateNewUser, createNewUser, loginUser, authenticateUser} = require("./utilities/helperFunctions");
 
@@ -24,7 +25,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/", authenticateUser, (req, res) => {
-  const user = users.find(user => user.username === cookies[req.cookies.session_id].username)
+  const user = users.find(user => user.username === cookies[req.cookies.session_id].username);
 
   res.render("index", {data: user.data});
 });
