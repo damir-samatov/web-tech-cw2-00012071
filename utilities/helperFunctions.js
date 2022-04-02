@@ -1,4 +1,4 @@
-const COOKIE_LIFETIME = 10;
+const COOKIE_LIFETIME = 20;
 const bcrypt = require("bcrypt");
 const users = require("../data/users.js");
 const cookies = require("../data/cookies.js");
