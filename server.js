@@ -8,6 +8,7 @@ const users = require("./data/users.js");
 const cookies = require("./data/cookies.js");
 
 const indexRoute = require("./routes/index.js")
+const spendingsRoute = require("./routes/spendings.js")
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
@@ -24,6 +25,8 @@ app.use((req, res, next) => {
 });
 
 app.use("/", indexRoute);
+
+app.use("/spendings", spendingsRoute);
 
 app.get('*', (req, res) => {
   res.render("404");

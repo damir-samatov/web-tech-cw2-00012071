@@ -2,7 +2,6 @@ extends layout.pug
 
 block content 
   main.wrapper 
-    h1 Hello #{data.username}
-    ul
-      each val in data.spendings
-        li= val.amount + val.currency + val.time + val.for
+    h1 Welcome to the spendings tracker app!
+    a(href="/login") Login
+    a(href="/register") Register
