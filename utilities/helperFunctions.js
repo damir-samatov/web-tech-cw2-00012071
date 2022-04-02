@@ -2,6 +2,7 @@ const COOKIE_LIFETIME = 10;
 const bcrypt = require("bcrypt");
 const users = require("../data/users.js");
 const cookies = require("../data/cookies.js");
+const {v4: uniqueID} = require("uuid")
 
 function validateNewUser(req, res, next) {
   const {username, password} = req.body;
@@ -80,7 +81,7 @@ async function loginUser(req, res, next) {
       return;
     }; 
 
-    const session_id = randomID();
+    const session_id = uniqueID();
 
     cookies[session_id] = {
       "username": userInDb.username,
@@ -117,16 +118,11 @@ function authenticateUser(req, res, next) {
   next();
 };
 
-function randomID() {
-  return Math.random().toString(36).slice(2, 11) + Math.random().toString(36).slice(2, 11);
-};
-
 function getCurrentTime() {
   return Math.round((new Date().getTime()) / 1000); 
 };
 
 module.exports = {
-  randomID,
   validateNewUser,
   createNewUser,
   loginUser,
