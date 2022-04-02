@@ -2,6 +2,7 @@ extends layout.pug
 
 block content 
   main.wrapper 
-    h1 Hello #{username}
-    form(action="/logout" method="POST") 
-      button Logout
+    h1 Hello #{data.username}
+    ul
+      each val in data.spendings
+        li= val.amount + val.currency + val.time + val.for
