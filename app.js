@@ -25,6 +25,10 @@ app.use((req, res, next) => {
 
 app.use("/", indexRoute);
 
+app.get('*', (req, res) => {
+  res.render("404");
+});
+
 app.listen(PORT, (err) => {
   if (err) throw err;
   console.log(`Server on: http://localhost:${PORT}/`);
