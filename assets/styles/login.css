@@ -1,0 +1,43 @@
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-wrapper {
+  max-width: 350px;
+  width: 100%;
+  background-color: rgba(91, 120, 122, 0.507);
+  padding: 20px;
+  border-radius: 5px;
+}
+.form-wrapper input {
+  border: 0;
+  line-height: 1;
+  padding: 0.5em 1em;
+  border-radius: 0.1em;
+  width: 100%;
+}
+
+.button {
+  cursor: pointer;
+  padding: 0.5em 1.5em;
+  border-radius: 0.1em;
+  border: 0;
+}
+
+.form-wrapper * {
+  display: block;
+}
+
+.credentials > *{
+  margin: 2em 0 0 0;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

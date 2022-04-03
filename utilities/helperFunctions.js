@@ -43,14 +43,37 @@ async function createNewUser(req, res, next) {
         "spendings": [
           {
             "time": "12:23",
-            "date": "2022-01-31",
+            "date": "2022-04-02",
+            "day": "1",
+            "month": "April",
+            "year": "2022",
+            "amount": "98000",
+            "currency": "SUM",
+            "for": "Netflix monthly subscription.1",
+            "edited": false
+          },
+          {
+            "time": "12:23",
+            "date": "2022-04-03",
+            "day": "1",
+            "month": "April",
+            "year": "2022",
+            "amount": "98000",
+            "currency": "SUM",
+            "for": "Netflix monthly subscription.2",
+            "edited": false
+          },
+          {
+            "time": "12:23",
+            "date": "2022-01-02",
             "day": "1",
             "month": "April",
             "year": "2022",
             "amount": "98000",
             "currency": "SUM",
             "for": "Netflix monthly subscription.",
-          }
+            "edited": false
+          },
         ]
       }
     }
