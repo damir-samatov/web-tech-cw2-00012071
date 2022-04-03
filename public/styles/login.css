@@ -32,12 +32,31 @@
   display: block;
 }
 
-.credentials > *{
-  margin: 1.5em 0 0 0;
+.credentials > * {
+  margin: 1em 0 0 0;
 }
 
 .buttons {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
+}
+.show-password input {
+  width: fit-content;
+}
+
+.show-password {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.show-password [type="checkbox"] {
+  height: 20px;
+  width: 20px;
+}
+
+.link:hover {
+  text-decoration: underline;
 }

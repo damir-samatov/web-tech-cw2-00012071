@@ -3,10 +3,10 @@ import cookies from "../data/cookies.js";
 import { nanoid } from "nanoid";
 import db from "../data/db.js";
 
-const COOKIE_LIFETIME = 20; // Cookies' expiration time in seconds
+const COOKIE_LIFETIME = 5; // Cookies' expiration time in seconds
 
 function validateNewUser(req, res, next) {
-  const { username, password } = req.body;
+  const { username, password, confirmPassword } = req.body;
 
   if (username.length < 1) {
     res.json({ msg: "Username cant be empty" });
@@ -15,6 +15,11 @@ function validateNewUser(req, res, next) {
 
   if (password.length < 8) {
     res.json({ msg: "Password should be at least 8 characters" });
+    return;
+  }
+
+  if (password !== confirmPassword) {
+    res.json({ msg: "Passwords should match" });
     return;
   }
 
@@ -41,45 +46,24 @@ async function createNewUser(req, res, next) {
       data: {
         username: username,
         spendings: [
-          {
-            time: "12:23",
-            date: "2022-04-02",
-            day: "1",
-            month: "April",
-            year: "2022",
-            amount: "98000",
-            currency: "SUM",
-            for: "Netflix monthly subscription.1",
-            edited: false,
-          },
-          {
-            time: "12:23",
-            date: "2022-04-03",
-            day: "1",
-            month: "April",
-            year: "2022",
-            amount: "98000",
-            currency: "SUM",
-            for: "Netflix monthly subscription.2",
-            edited: false,
-          },
-          {
-            time: "12:23",
-            date: "2022-01-02",
-            day: "1",
-            month: "April",
-            year: "2022",
-            amount: "98000",
-            currency: "SUM",
-            for: "Netflix monthly subscription.",
-            edited: false,
-          },
+          // {
+          //   time: "12:23",
+          //   date: "2022-01-02",
+          //   day: "1",
+          //   month: "April",
+          //   year: "2022",
+          //   amount: "98000",
+          //   currency: "SUM",
+          //   for: "Netflix monthly subscription.",
+          //   edited: false,
+          // },
         ],
       },
     };
 
     db.data.users.push(user);
     db.write();
+
     next();
   } catch {
     res.status(500).send({ msg: "Error" });

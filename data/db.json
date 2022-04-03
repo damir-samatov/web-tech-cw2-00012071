@@ -83,6 +83,14 @@
           }
         ]
       }
+    },
+    {
+      "username": "damir",
+      "password": "$2b$10$NvcJw/tBUFrnwLKF2OP.sOcfWaAiXjJFtnkcxDBCayVf4q/1HKq2O",
+      "data": {
+        "username": "damir",
+        "spendings": []
+      }
     }
   ]
 }

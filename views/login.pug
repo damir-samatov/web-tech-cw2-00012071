@@ -6,6 +6,7 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     link(rel="stylesheet", href="/static/styles/index.css")
     link(rel="stylesheet", href="/static/styles/login.css")
+    script(src="/static/js/index.js", defer="defer") 
     title Log in
   body 
     main.wrapper
@@ -14,6 +15,9 @@ html(lang="en")
         form.credentials(action="/login" method="POST" autocomplete="off") 
           input(type="text" id="username" name="username" required placeholder="Username")
           input(type="password" id="password" name="password" required placeholder="Password")
+          div.show-password
+            label(for="showPassword") Show password 
+            input(type="checkbox" id="showPassword")
           div.buttons 
             a(href="/register").link Register
             button.button LOG IN
