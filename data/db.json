@@ -1,0 +1,88 @@
+{
+  "users": [
+    {
+      "username": "asd",
+      "password": "$2b$10$DIeaa8RNdoltA4geyKvJmu1MUEvi4uHNRtyDGVj1JjJp68Lrd4GKu",
+      "data": {
+        "username": "asd",
+        "spendings": [
+          {
+            "time": "12:23",
+            "date": "2022-04-02",
+            "day": "1",
+            "month": "April",
+            "year": "2022",
+            "amount": "98000",
+            "currency": "SUM",
+            "for": "Netflix monthly subscription.1",
+            "edited": false
+          },
+          {
+            "time": "12:23",
+            "date": "2022-04-03",
+            "day": "1",
+            "month": "April",
+            "year": "2022",
+            "amount": "98000",
+            "currency": "SUM",
+            "for": "Netflix monthly subscription.2",
+            "edited": false
+          },
+          {
+            "time": "12:23",
+            "date": "2022-01-02",
+            "day": "1",
+            "month": "April",
+            "year": "2022",
+            "amount": "98000",
+            "currency": "SUM",
+            "for": "Netflix monthly subscription.",
+            "edited": false
+          }
+        ]
+      }
+    },
+    {
+      "username": "asdasd",
+      "password": "$2b$10$uYyA6E3M8MWzFm2PNFh9CeVYcaNGnzQ/xc7kENY1PCc80eOu7lmry",
+      "data": {
+        "username": "asdasd",
+        "spendings": [
+          {
+            "time": "12:23",
+            "date": "2022-04-02",
+            "day": "1",
+            "month": "April",
+            "year": "2022",
+            "amount": "98000",
+            "currency": "SUM",
+            "for": "Netflix monthly subscription.1",
+            "edited": false
+          },
+          {
+            "time": "12:23",
+            "date": "2022-04-03",
+            "day": "1",
+            "month": "April",
+            "year": "2022",
+            "amount": "98000",
+            "currency": "SUM",
+            "for": "Netflix monthly subscription.2",
+            "edited": false
+          },
+          {
+            "time": "12:23",
+            "date": "2022-01-02",
+            "day": "1",
+            "month": "April",
+            "year": "2022",
+            "amount": "98000",
+            "currency": "SUM",
+            "for": "Netflix monthly subscription.",
+            "edited": false
+          }
+        ]
+      }
+    }
+  ]
+}

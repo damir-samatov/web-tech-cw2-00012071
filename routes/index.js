@@ -1,8 +1,11 @@
-const { Router } = require("express");
+import { Router } from "express";
+import {
+  validateNewUser,
+  createNewUser,
+  loginUser,
+} from "../utilities/helperFunctions.js";
+
 const router = Router();
-const { validateNewUser, createNewUser, loginUser, authenticateUser} = require("../utilities/helperFunctions.js");
-const users = require("../data/users.js");
-const cookies = require("../data/cookies.js");
 
 router.get("/", (req, res) => {
   res.render("index");
@@ -24,4 +27,4 @@ router.post("/register", validateNewUser, createNewUser, (req, res) => {
   res.redirect("/login");
 });
 
-module.exports = router;
+export default router;
