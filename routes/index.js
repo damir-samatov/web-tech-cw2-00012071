@@ -1,30 +1,26 @@
 import { Router } from "express";
-import {
-  validateNewUser,
-  createNewUser,
-  loginUser,
-} from "../utilities/helperFunctions.js";
+import { validateNewUser, createNewUser, loginUser } from "../localModules.js";
 
 const router = Router();
 
 router.get("/", (req, res) => {
-  res.render("index");
+  res.render("index", { title: "Home", path: req.path });
 });
 
 router.get("/login", (req, res) => {
-  res.render("login");
+  res.render("login", { path: req.path });
 });
 
 router.get("/register", (req, res) => {
-  res.render("register");
+  res.render("register", { path: req.path });
 });
 
 router.post("/login", loginUser, (req, res) => {
-  res.redirect("/spendings");
+  res.json({ msg: "Logged in successfully", success: true });
 });
 
 router.post("/register", validateNewUser, createNewUser, (req, res) => {
-  res.redirect("/login");
+  res.json({ msg: "Registered successfully", success: true });
 });
 
 export default router;

@@ -5,7 +5,7 @@ import { fileURLToPath } from "url";
 import { dirname } from "path";
 import cookies from "./data/cookies.js";
 import indexRoute from "./routes/index.js";
-import spendingsRoute from "./routes/spendings.js";
+import todosRoute from "./routes/todos.js";
 import db from "./data/db.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 
 app.use("/", indexRoute);
 
-app.use("/spendings", spendingsRoute);
+app.use("/todos", todosRoute);
 
 app.get("*", (req, res) => {
   res.status(404).render("404");

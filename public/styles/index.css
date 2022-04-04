@@ -1,4 +1,6 @@
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -13,3 +15,9 @@ a {
   color: #000;
 }
 
+#todoForm {
+  display: none;
+}
+#todoForm.show {
+  display: block;
+}

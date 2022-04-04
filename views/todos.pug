@@ -1,0 +1,26 @@
+extends layout.pug 
+
+block content 
+  main.wrapper
+    h1 #{title} of #{data.username}
+    ul
+      each val in data.todos
+        li
+          h2 #{val.title}
+          p #{val.task}
+          p #{val.priority}
+          button(data-delete=val.id) Delete
+          button(data-todo=val.id) Edit
+    div(id="todoForm", data-todo="createTodo")
+      input(type="text" id="todoTitle" name="todoTitle" required placeholder="title")
+      br
+      input(type="textarea" id="todoTask" name="todoTask" required placeholder="task")
+      br
+      select(id="todoPriority" name="priority")
+        option(value="high") High 
+        option(value="medium") Medium
+        option(value="low") Low
+      br
+      div.buttons
+        button.button(id="saveTodo") Save
+    button(id="createTodo") Create Todo

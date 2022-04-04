@@ -6,19 +6,22 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     link(rel="stylesheet", href="/static/styles/index.css")
     link(rel="stylesheet", href="/static/styles/login.css")
-    script(src="/static/js/index.js", defer="defer") 
+    script(src="/static/js/scripts.js", defer="defer")
+    script(src="/static/js/login&register.js", defer="defer") 
+    script(src="/static/js/register.js", defer="defer") 
     title Register
   body 
     main.wrapper 
       div.form-wrapper 
         h1.title Register
-        form.credentials(action="/register" method="POST" autocomplete="off") 
+        form.credentials(autocomplete="off") 
           input(type="text" id="username" name="username" required placeholder="Username")
           input(type="password" id="password" name="password" required placeholder="Password")
           input(type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm password")
+          div(id="error")
           div.show-password
             label(for="showPassword") Show password 
             input(type="checkbox" id="showPassword")
           div.buttons
             a(href="/login").link Log in
-            button.button REGISTER
+            button.button(id="register") REGISTER
