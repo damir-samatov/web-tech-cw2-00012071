@@ -8,12 +8,12 @@ import indexRoute from "./routes/index.js";
 import todosRoute from "./routes/todos.js";
 import db from "./data/db.js";
 
+const PORT = process.env.PORT || 1337;
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const app = express();
-
-const PORT = 1337;
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");

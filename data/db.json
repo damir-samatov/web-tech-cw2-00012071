@@ -1,3 +1,35 @@
 {
-  "users": []
+  "users": [
+    {
+      "username": "sardor",
+      "password": "$2b$10$7j4lvz4rhUAu.rtCN5Y4eezVcyHqIzFmFa7U7R5bC1SD9WI5fW/vO",
+      "data": {
+        "username": "sardor",
+        "todos": [
+          {
+            "id": "FP7H-p3tCFIXHwSYz8Ejh",
+            "title": "adawdawasdawda",
+            "task": "asdawdawsdawdawdaw",
+            "priority": "medium",
+            "createdTime": "4/4/2022, 9:15:33 PM",
+            "isCanceled": true,
+            "isCompleted": false,
+            "isEdited": true,
+            "finishedTime": null
+          },
+          {
+            "id": "7c4UavLdlJ3YUBRS-YbNZ",
+            "title": "awdawdas",
+            "task": "ad",
+            "priority": "medium",
+            "createdTime": "4/4/2022, 9:15:44 PM",
+            "isCanceled": false,
+            "isCompleted": true,
+            "isEdited": true,
+            "finishedTime": null
+          }
+        ]
+      }
+    }
+  ]
 }
