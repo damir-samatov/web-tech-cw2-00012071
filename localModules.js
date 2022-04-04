@@ -150,7 +150,25 @@ function cancelTodo(req, res, next) {
 
   const todo = user.data.todos.find((todo) => todo.id === cancelByID);
 
+  todo.isCompleted = false;
+
   todo.isCanceled = true;
+
+  db.write();
+
+  next();
+}
+
+function completeTodo(req, res, next) {
+  const user = findUser(req.cookies.session_id);
+
+  const completeByID = req.params.id;
+
+  const todo = user.data.todos.find((todo) => todo.id === completeByID);
+
+  todo.isCompleted = true;
+
+  todo.isCanceled = false;
 
   db.write();
 
@@ -190,7 +208,7 @@ function createTodo(req, res, next) {
     priority: priority,
     createdTime: getCurrentTime(),
     isCanceled: false,
-    isFinished: false,
+    isCompleted: false,
     isEdited: true,
     finishedTime: null,
   };
@@ -220,4 +238,5 @@ export {
   findUser,
   editTodo,
   createTodo,
+  completeTodo,
 };

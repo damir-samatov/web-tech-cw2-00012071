@@ -4,20 +4,114 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.wrapper {
+.container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
   padding: 0 20px;
+}
+
+ul {
+  list-style: none;
 }
 
 a {
   text-decoration: none;
-  color: #000;
+}
+
+.navbar {
+  padding: 20px;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  text-transform: uppercase;
+}
+
+.link {
+  color: black;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.button {
+  font-size: 16px;
+  padding: 0.5em 1em;
+  display: block;
+  border: 0;
+  background-color: aqua;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  margin: 20px 0 0 0;
+}
+
+.button.delete {
+  background-color: crimson;
+}
+
+.button:hover {
+  background-color: aquamarine;
+}
+
+.todo {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px 0 0 0;
 }
 
 #todoForm {
   display: none;
 }
+
 #todoForm.show {
   display: block;
+}
+
+#createTodo.hide {
+  display: none;
+}
+
+#createTodo {
+  display: block;
+  margin: 0 0 0 auto;
+}
+#todoForm {
+  background-color: rebeccapurple;
+  padding: 20px;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 600px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#todoTask {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 0 0;
+}
+#todoTitle {
+  padding: 10px;
+  flex: 1 1 100px;
+}
+
+#todoPriority {
+  padding: 10px;
+}
+
+.inputs-row {
+  display: flex;
+  gap: 10px;
 }

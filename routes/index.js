@@ -4,7 +4,7 @@ import { validateNewUser, createNewUser, loginUser } from "../localModules.js";
 const router = Router();
 
 router.get("/", (req, res) => {
-  res.render("index", { title: "Home", path: req.path });
+  res.redirect("/todos");
 });
 
 router.get("/login", (req, res) => {

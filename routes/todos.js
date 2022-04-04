@@ -5,6 +5,7 @@ import {
   editTodo,
   findUser,
   createTodo,
+  completeTodo,
 } from "../localModules.js";
 
 const router = Router();
@@ -13,7 +14,7 @@ router.get("/", authenticateUser, (req, res) => {
   const user = findUser(req.cookies.session_id);
 
   const todos = user.data.todos.filter(
-    (todo) => !todo.isFinshed && !todo.isCanceled
+    (todo) => !todo.isCompleted && !todo.isCanceled
   );
 
   const data = {
@@ -27,11 +28,11 @@ router.get("/", authenticateUser, (req, res) => {
 router.get("/finished", authenticateUser, (req, res) => {
   const user = findUser(req.cookies.session_id);
 
-  const finishedTodos = user.data.todos.filter((todo) => todo.isFinshed);
+  const completedTodos = user.data.todos.filter((todo) => todo.isCompleted);
 
   const data = {
     username: user.username,
-    todos: finishedTodos,
+    todos: completedTodos,
   };
 
   res.render("todos", { data: data, title: "Finished Todos", path: req.path });
@@ -72,6 +73,10 @@ router.post("/create", authenticateUser, createTodo, (req, res) => {
 
 router.delete("/cancel/:id", authenticateUser, cancelTodo, (req, res) => {
   res.json({ msg: "Succesfully canceled", success: true });
+});
+
+router.delete("/complete/:id", authenticateUser, completeTodo, (req, res) => {
+  res.json({ msg: "Succesfully completed", success: true });
 });
 
 router.put("/edit/:id", authenticateUser, editTodo, (req, res) => {

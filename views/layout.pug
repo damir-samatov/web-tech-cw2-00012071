@@ -9,4 +9,13 @@ html(lang="en")
     script(src="/static/js/todos.js" defer="defer")
     title #{title}
   body
-    block content
+    div.container
+      nav.navbar
+        ul 
+          li 
+            a(href="/todos").link Todos
+          li 
+            a(href="/todos/finished").link Finished
+          li 
+            a(href="/todos/canceled").link Canceled
+      block content

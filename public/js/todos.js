@@ -11,21 +11,40 @@
 
   const createTodoBtn = qs("#createTodo");
 
+  const cancelSaveBtn = qs("#cancelSave");
+
+  cancelSaveBtn.addEventListener("click", () => {
+    todoForm.classList.remove("show");
+    createTodoBtn.classList.remove("hide");
+  });
+
   createTodoBtn.addEventListener("click", () => {
     todoForm.setAttribute("data-todo", "createTodo");
     todoForm.classList.add("show");
+    createTodoBtn.classList.add("hide");
   });
 
   document.addEventListener("click", (e) => {
     const element = e.target;
 
-    if (element.hasAttribute("data-delete")) {
-      const id = element.getAttribute("data-delete");
+    if (element.hasAttribute("data-cancel")) {
+      const id = element.getAttribute("data-cancel");
 
       fetchDelete(`/todos/cancel/${id}`, (data) => {
         if (!data.success) return;
         window.location.href = "/todos";
       });
+      return;
+    }
+
+    if (element.hasAttribute("data-complete")) {
+      const id = element.getAttribute("data-complete");
+
+      fetchDelete(`/todos/complete/${id}`, (data) => {
+        if (!data.success) return;
+        window.location.href = "/todos";
+      });
+      return;
     }
 
     if (element.hasAttribute("data-todo")) {
@@ -44,7 +63,9 @@
         editTodoPriorityEl.value = todo.priority;
 
         todoForm.classList.add("show");
+        createTodoBtn.classList.add("hide");
       });
+      return;
     }
   });
 
