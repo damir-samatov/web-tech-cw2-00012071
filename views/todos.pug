@@ -1,22 +1,28 @@
 extends layout.pug 
 
 block content 
-  h1 #{title} of #{data.username}
-  if title == "Todos"
+  div.row 
+    h1.title #{data.username}
+    if title == "Todos"
     button(id="createTodo").button Create Todo
   ul
     each val in data.todos
       li
-        div.todo
+        div.todo.card
           h2 #{val.title}
-          span Priority: #{val.priority}
+          br
           p #{val.task}
+          br
+          p Priority: #{val.priority}
+          br
+          p #{val.createdTime}
+          br
           if title == "Todos"
             div.buttons
               button(data-todo=val.id).button Edit
               button(data-complete=val.id).button Complete
-              button(data-cancel=val.id).button.delete Cancel
-  div(id="todoForm", data-todo="createTodo")
+              button(data-cancel=val.id).button.danger Cancel
+  div(id="todoForm", data-todo="createTodo").card
     div.inputs-row
       input(type="text" id="todoTitle" name="todoTitle" required placeholder="title")
       select(id="todoPriority" name="priority")

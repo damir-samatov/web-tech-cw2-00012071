@@ -1,4 +1,6 @@
 (() => {
+  const logoutBtn = qs("#logout");
+
   const todoForm = qs("#todoForm");
 
   const editTodoTitleEl = qs("#todoTitle");
@@ -12,6 +14,13 @@
   const createTodoBtn = qs("#createTodo");
 
   const cancelSaveBtn = qs("#cancelSave");
+
+  logoutBtn.addEventListener("click", () => {
+    fetchDelete("/logout", (data) => {
+      if (!data.success) return;
+      window.location.href = "/login";
+    });
+  });
 
   cancelSaveBtn.addEventListener("click", () => {
     todoForm.classList.remove("show");
@@ -82,6 +91,13 @@
       priority: editTodoPriorityEl.value,
     };
 
+    const { title, task, priority } = body;
+
+    if (title.trim() === "" || task.trim() === "" || priority.trim() === "") {
+      return;
+    }
+    console.log("clicked");
+
     fetchPut(`/todos/edit/${id}`, body, (data) => {
       if (!data.success) return;
       window.location.href = "/todos";
@@ -95,7 +111,11 @@
       priority: editTodoPriorityEl.value,
     };
 
-    if (!body.title || !body.task || !body.priority) return;
+    const { title, task, priority } = body;
+
+    if (title.trim() === "" || task.trim() === "" || priority.trim() === "") {
+      return;
+    }
 
     fetchPost(`/todos/create`, body, (data) => {
       if (!data.success) return;

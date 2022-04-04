@@ -1,0 +1,64 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.card {
+  background-color: #c2c7ca;
+  padding: 20px;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+.button {
+  background-color: #488073;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.5em 1em;
+  border: 0;
+  min-width: max-content;
+  font-size: 16px;
+  color: white;
+}
+
+.button:hover {
+  background-color: #5aa191;
+}
+
+.button.danger {
+  background-color: rgb(126, 38, 55);
+}
+
+.button.danger:hover {
+  background-color: crimson;
+}
+
+.link {
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

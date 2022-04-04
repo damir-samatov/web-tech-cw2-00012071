@@ -9,23 +9,14 @@
 .form-wrapper {
   max-width: 350px;
   width: 100%;
-  background-color: rgba(91, 120, 122, 0.507);
-  padding: 20px;
-  border-radius: 5px;
 }
+
 .form-wrapper input {
   border: 0;
   line-height: 1;
   padding: 0.5em 1em;
   border-radius: 0.1em;
   width: 100%;
-}
-
-.button {
-  cursor: pointer;
-  padding: 1em 3em;
-  border-radius: 0.1em;
-  border: 0;
 }
 
 .form-wrapper * {
@@ -55,8 +46,4 @@
 .show-password [type="checkbox"] {
   height: 20px;
   width: 20px;
-}
-
-.link:hover {
-  text-decoration: underline;
 }

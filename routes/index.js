@@ -1,5 +1,11 @@
 import { Router } from "express";
-import { validateNewUser, createNewUser, loginUser } from "../localModules.js";
+import {
+  validateNewUser,
+  createNewUser,
+  loginUser,
+  logoutUser,
+  authenticateUser,
+} from "../localModules.js";
 
 const router = Router();
 
@@ -21,6 +27,10 @@ router.post("/login", loginUser, (req, res) => {
 
 router.post("/register", validateNewUser, createNewUser, (req, res) => {
   res.json({ msg: "Registered successfully", success: true });
+});
+
+router.delete("/logout", authenticateUser, logoutUser, (req, res) => {
+  res.json({ msg: "Logged out", success: true });
 });
 
 export default router;

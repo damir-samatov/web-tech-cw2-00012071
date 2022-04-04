@@ -4,7 +4,8 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    link(rel="stylesheet", href="/static/styles/index.css")
+    link(rel="stylesheet", href="/static/styles/general.css")
+    link(rel="stylesheet", href="/static/styles/todos.css")
     script(src="/static/js/scripts.js", defer="defer")
     script(src="/static/js/todos.js" defer="defer")
     title #{title}
@@ -15,7 +16,9 @@ html(lang="en")
           li 
             a(href="/todos").link Todos
           li 
-            a(href="/todos/finished").link Finished
+            a(href="/todos/finished").link Completed
           li 
             a(href="/todos/canceled").link Canceled
+          li 
+            button(id="logout").button.danger Log out
       block content

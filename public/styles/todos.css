@@ -1,0 +1,78 @@
+.navbar {
+  padding: 20px 0;
+}
+
+.title {
+  font-size: 20px;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: 20px 0 0 0;
+}
+
+.todo {
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+#todoForm {
+  display: none;
+}
+
+#todoForm.show {
+  display: block;
+}
+
+#createTodo.hide {
+  display: none;
+}
+
+#createTodo {
+  display: block;
+  margin: 0 0 0 auto;
+}
+#todoForm {
+  width: 100%;
+  max-width: 600px;
+  position: fixed;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#todoTask {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 0 0;
+}
+#todoTitle {
+  padding: 10px;
+  flex: 1 1 100px;
+}
+
+#todoPriority {
+  padding: 1em;
+}
+
+.inputs-row {
+  display: flex;
+  gap: 10px;
+}

@@ -48,7 +48,7 @@ router.get("/canceled", authenticateUser, (req, res) => {
     todos: canceledTodos,
   };
 
-  res.render("todos", { data: data, title: "Canceled Todos", path: req.path });
+  res.render("todos", { data: data, title: "Cancelled Todos", path: req.path });
 });
 
 router.get("/:id", authenticateUser, (req, res) => {
@@ -72,7 +72,7 @@ router.post("/create", authenticateUser, createTodo, (req, res) => {
 });
 
 router.delete("/cancel/:id", authenticateUser, cancelTodo, (req, res) => {
-  res.json({ msg: "Succesfully canceled", success: true });
+  res.json({ msg: "Succesfully cancelled", success: true });
 });
 
 router.delete("/complete/:id", authenticateUser, completeTodo, (req, res) => {

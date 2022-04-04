@@ -5,6 +5,14 @@ import db from "./data/db.js";
 
 const COOKIE_LIFETIME = 36000;
 
+function getCurrentTime() {
+  return Math.round(new Date().getTime() / 1000);
+}
+
+function removeDisallowedCharacters(string) {
+  return string.replace(/[^A-Za-z0-9_]/g, "");
+}
+
 function validateNewUser(req, res, next) {
   const { username, password, confirmPassword } = req.body;
 
@@ -111,8 +119,18 @@ async function loginUser(req, res, next) {
 
     next();
   } catch {
-    res.status(500).send({ msg: "Server error", success: false });
+    res.status(500).json({ msg: "Server error", success: false });
   }
+}
+
+async function logoutUser(req, res, next) {
+  const sessionID = req.cookies.session_id;
+
+  delete cookies[sessionID];
+
+  res.cookie("session_id", "");
+
+  next();
 }
 
 function authenticateUser(req, res, next) {
@@ -178,15 +196,20 @@ function completeTodo(req, res, next) {
 function editTodo(req, res, next) {
   const user = findUser(req.cookies.session_id);
 
-  const newTodo = req.body;
+  const { title, task, priority } = req.body;
+
+  if (title.trim() === "" || task.trim() === "" || priority.trim() === "") {
+    res.json({ msg: "Fields cant be empty", success: false });
+    return;
+  }
 
   const editByID = req.params.id;
 
   const todo = user.data.todos.find((todo) => todo.id === editByID);
 
-  todo.title = newTodo.title;
-  todo.task = newTodo.task;
-  todo.priority = newTodo.priority;
+  todo.title = title;
+  todo.task = task;
+  todo.priority = priority;
   todo.isEdited = true;
 
   db.write();
@@ -199,6 +222,11 @@ function createTodo(req, res, next) {
 
   const { title, task, priority } = req.body;
 
+  if (title.trim() === "" || task.trim() === "" || priority.trim() === "") {
+    res.json({ msg: "Fields cant be empty", success: false });
+    return;
+  }
+
   const id = nanoid();
 
   const newTodo = {
@@ -206,7 +234,7 @@ function createTodo(req, res, next) {
     title: title,
     task: task,
     priority: priority,
-    createdTime: getCurrentTime(),
+    createdTime: new Date().toLocaleString(),
     isCanceled: false,
     isCompleted: false,
     isEdited: true,
@@ -220,14 +248,6 @@ function createTodo(req, res, next) {
   next();
 }
 
-function getCurrentTime() {
-  return Math.round(new Date().getTime() / 1000);
-}
-
-function removeDisallowedCharacters(string) {
-  return string.replace(/[^A-Za-z0-9_]/g, "");
-}
-
 export {
   validateNewUser,
   createNewUser,
@@ -239,4 +259,5 @@ export {
   editTodo,
   createTodo,
   completeTodo,
+  logoutUser,
 };
