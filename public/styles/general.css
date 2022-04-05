@@ -26,12 +26,12 @@ a {
   background-color: #c2c7ca;
   padding: 20px;
   border-radius: 5px;
-  border: 2px solid black;
+  border: 2px solid #000000;
 }
 
 .button {
   background-color: #488073;
-  color: black;
+  color: #000000;
   font-weight: bold;
   cursor: pointer;
   padding: 0.5em 1em;
@@ -46,15 +46,15 @@ a {
 }
 
 .button.danger {
-  background-color: rgb(126, 38, 55);
+  background-color: #7e2637;
 }
 
 .button.danger:hover {
-  background-color: crimson;
+  background-color: #dc143c;
 }
 
 .link {
-  color: black;
+  color: #000000;
   font-weight: bold;
   font-size: 16px;
 }

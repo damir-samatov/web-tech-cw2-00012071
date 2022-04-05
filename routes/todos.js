@@ -38,7 +38,7 @@ router.get("/finished", authenticateUser, (req, res) => {
   res.render("todos", { data: data, title: "Finished Todos", path: req.path });
 });
 
-router.get("/canceled", authenticateUser, (req, res) => {
+router.get("/cancelled", authenticateUser, (req, res) => {
   const user = findUser(req.cookies.session_id);
 
   const canceledTodos = user.data.todos.filter((todo) => todo.isCanceled);

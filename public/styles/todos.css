@@ -11,6 +11,7 @@
   justify-content: center;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -75,4 +76,22 @@
 .inputs-row {
   display: flex;
   gap: 10px;
+}
+
+p.high {
+  color:#dc143c;
+  font-weight: bold;
+}
+p.medium {
+  color: #393969;
+  font-weight: bold;
+}
+p.low {
+  color: #5aa191;
+  font-weight: bold;
+}
+
+p.edited {
+  color: #af7906;
+  font-weight: bold;
 }

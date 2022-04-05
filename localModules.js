@@ -188,6 +188,8 @@ function completeTodo(req, res, next) {
 
   todo.isCanceled = false;
 
+  todo.completedTime = new Date();
+
   db.write();
 
   next();
@@ -234,10 +236,11 @@ function createTodo(req, res, next) {
     title: title,
     task: task,
     priority: priority,
-    createdTime: new Date().toLocaleString(),
+    createdTime: new Date(),
+    completedTime: null,
     isCanceled: false,
     isCompleted: false,
-    isEdited: true,
+    isEdited: false,
     finishedTime: null,
   };
 

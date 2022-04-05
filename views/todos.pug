@@ -4,7 +4,7 @@ block content
   div.row 
     h1.title #{data.username}
     if title == "Todos"
-    button(id="createTodo").button Create Todo
+      button(id="createTodo").button Create Todo
   ul
     each val in data.todos
       li
@@ -13,9 +13,20 @@ block content
           br
           p #{val.task}
           br
-          p Priority: #{val.priority}
+          if val.priority === "high"
+            p.high Priority: #{val.priority}
+          if val.priority === "medium"
+            p.medium Priority: #{val.priority}
+          if val.priority === "low"
+            p.low Priority: #{val.priority}
           br
-          p #{val.createdTime}
+          p Created: #{val.createdTime}
+          if val.isCompleted
+            br
+            p Completed: #{val.completedTime}
+          if val.isEdited
+            br
+            p.edited Been edited
           br
           if title == "Todos"
             div.buttons
